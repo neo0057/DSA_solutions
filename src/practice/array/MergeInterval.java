@@ -3,16 +3,6 @@ package practice.array;
 import java.util.Arrays;
 import java.util.Comparator;
 
-class Interval {
-    int start;
-    int end;
-
-    public Interval(int start, int end) {
-        this.start = start;
-        this.end = end;
-    }
-}
-
 public class MergeInterval {
 
     public static void mergeIntervals(Interval[] arr) {
