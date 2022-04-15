@@ -16,8 +16,8 @@ public class LongestUniValuePath {
         rightCount = longestUnivaluePathRec(root.right);
         int lLeft = 0;
         int rRight = 0;
-        if (root.left != null && root.left.data == root.data) lLeft = leftCount + 1;
-        if (root.right != null && root.right.data == root.data) rRight = rightCount + 1;
+        if (root.left != null && root.left.val == root.val) lLeft = leftCount + 1;
+        if (root.right != null && root.right.val == root.val) rRight = rightCount + 1;
         res = Math.max(res, lLeft + rRight);
         return Math.max(lLeft, rRight);
     }

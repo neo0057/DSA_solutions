@@ -21,8 +21,8 @@ public class MaxSumPath {
         if (root == null) return 0;
         int leftSum = maxPathSumRec(root.left);
         int rightSum = maxPathSumRec(root.right);
-        int maxSingle = Math.max(Math.max(leftSum, rightSum) + root.data, root.data);
-        int maxOfAll = Math.max(maxSingle, leftSum + rightSum + root.data);
+        int maxSingle = Math.max(Math.max(leftSum, rightSum) + root.val, root.val);
+        int maxOfAll = Math.max(maxSingle, leftSum + rightSum + root.val);
         res = Math.max(res, maxOfAll);
         return maxSingle;
     }

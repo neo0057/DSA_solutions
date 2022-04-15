@@ -31,7 +31,7 @@ public class HttpCall {
         }
     }
 
-    public void post(String completeUrl, String body) throws IOException {
+    public void post() throws IOException {
         URL url = new URL("https://reqres.in/api/users");
 
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -106,11 +106,11 @@ public class HttpCall {
 
         HttpCall obj = new HttpCall();
 
-        System.out.println("Testing 1 - Send Http GET request");
-        obj.sendGet();
+        //System.out.println("Testing 1 - Send Http GET request");
+        //obj.sendGet();
 
         System.out.println("Testing 2 - Send Http POST request");
-        obj.sendPost();
+        obj.post();
 
     }
 }

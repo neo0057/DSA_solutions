@@ -12,11 +12,11 @@ public class SumRootToLeafNumbers {
     private void sumNumbersRec(TreeNode root, int prvSum) {
         if (root == null) return;
         if (root.left == null && root.right == null) {
-            sum += prvSum*10 + root.data;
+            sum += prvSum*10 + root.val;
             return;
         }
-        sumNumbersRec(root.left, prvSum * 10 + root.data);
-        sumNumbersRec(root.right, prvSum * 10 + root.data);
+        sumNumbersRec(root.left, prvSum * 10 + root.val);
+        sumNumbersRec(root.right, prvSum * 10 + root.val);
     }
 
     public static void main(String[] args) {

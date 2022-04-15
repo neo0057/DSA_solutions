@@ -12,12 +12,8 @@ public class DecodeString {
             boolean flag = Character.isDigit(ch);
             if (flag) {
                 if (internalStr.length() > 0) {
-                    if (!st.isEmpty() && isAlphabetsOnly(st.peek())) {
-//                        String temp = st.pop() + internalStr;
-                        st.push(st.pop() + internalStr);
-                    } else {
-                        st.push(internalStr.toString());
-                    }
+                    if (!st.isEmpty() && isAlphabetsOnly(st.peek())) st.push(st.pop() + internalStr);
+                    else st.push(internalStr.toString());
                     internalStr = new StringBuilder();
                 }
                 digit.append(ch);
@@ -44,9 +40,7 @@ public class DecodeString {
             }
         }
         StringBuilder result = new StringBuilder();
-        while (!st.isEmpty()) {
-            result.insert(0, st.pop());
-        }
+        while (!st.isEmpty()) result.insert(0, st.pop());
         result.append(internalStr);
         System.out.println(result);
         return result.toString();
@@ -57,9 +51,7 @@ public class DecodeString {
       char[] charArray = str.toCharArray();
       for (int i = 0; i < charArray.length; i++) {
          char ch = charArray[i];
-         if (!(ch >= 'a' && ch <= 'z')) {
-            return false;
-         }
+         if (!(ch >= 'a' && ch <= 'z')) return false;
       }
       return true;
    }
