@@ -1,15 +1,19 @@
-package assignments.task3;
+package assignments.manfred.task3;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class CollectionTask {
+public class COLLEC_main {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
-        int n = 25;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a positive number: ");
+        int n = sc.nextInt();
         while (n > 0) {
-            list.add(n/2);
+            list.add(n / 2);
             n /= 2;
         }
+        System.out.print("ArrayList contents: ");
         for (Integer num : list) {
             System.out.print(num + " ");
         }
