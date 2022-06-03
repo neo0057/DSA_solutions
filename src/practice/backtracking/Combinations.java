@@ -25,7 +25,7 @@ public class Combinations {
 
     public static void main(String[] args) {
         Combinations combinations = new Combinations();
-        List<List<Integer>> res = combinations.combine(1, 1);
+        List<List<Integer>> res = combinations.combine(5, 2);
         for (List<Integer> list : res) {
             for (Integer i : list) System.out.print(i + " ");
             System.out.println();

@@ -1,41 +1,29 @@
 package practice.backtracking;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class LetterTilePossibilities {
-    int res;
     public int numTilePossibilities(String tiles) {
-        List<Character> characterList = new ArrayList<>();
-        List<Character> remainingCharacterList = new ArrayList<>();
-        for (int i = 0; i < tiles.length(); i++) {
-            characterList.add(tiles.charAt(i));
-            remainingCharacterList.add(tiles.charAt(i));
-        }
-        res = 0;
-        numTilePossibilitiesRec(characterList, 0, tiles.length(), "");
-        return res;
+        Set<String> set = new HashSet<>();
+        boolean[] visited = new boolean[tiles.length()];
+        numTilePossibilitiesRec(tiles, "", set, visited);
+        return set.size() - 1;
     }
 
-    private void numTilePossibilitiesRec(List<Character> characterList, int id, int length, String comb) {
-        if (id == length) {
-            System.out.println(comb);
-            res++;
-        }
-        else {
-            for (int i = id; i < length; i++) {
-                comb += characterList.get(i);
-                //remainingCharacterList.remove(i);
-                numTilePossibilitiesRec(characterList, i + 1, length, comb);
-                comb = comb.substring(0, comb.length() - 1);
-//                remainingCharacterList.add(characterList.get(characterList.size() - 1));
+    private void numTilePossibilitiesRec(String tiles, String combination, Set<String> set, boolean[] visited) {
+        set.add(combination);
+        for (int i = 0; i < tiles.length(); i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                numTilePossibilitiesRec(tiles, combination + tiles.charAt(i), set, visited);
+                visited[i] = false;
             }
         }
     }
 
     public static void main(String[] args) {
-        String s = "AAB";
+        String s = "ABCD";
         LetterTilePossibilities possibilities = new LetterTilePossibilities();
         System.out.println(possibilities.numTilePossibilities(s));
     }
