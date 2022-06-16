@@ -9,20 +9,20 @@ public class Permutations {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> arr = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) arr.add(nums[i]);
+        for (int num : nums) arr.add(num);
         permuteRec(arr, 0, res);
         return res;
     }
 
-    private void permuteRec(List<Integer> nums, int index, List<List<Integer>> res) {
-        if (index == nums.size()) {
-            res.add(new ArrayList<>(nums));
+    private void permuteRec(List<Integer> arr, int index, List<List<Integer>> res) {
+        if (index == arr.size()) {
+            res.add(new ArrayList<>(arr));
             return;
         }
-        for (int i = index; i < nums.size(); i++) {
-            Collections.swap(nums, i, index);
-            permuteRec(nums, index + 1, res);
-            Collections.swap(nums, index, i);
+        for (int i = index; i < arr.size(); i++) {
+            Collections.swap(arr, i, index);
+            permuteRec(arr, index + 1, res);
+            Collections.swap(arr, index, i);
         }
     }
 

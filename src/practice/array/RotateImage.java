@@ -3,24 +3,22 @@ package practice.array;
 public class RotateImage {
     public void rotate(int[][] matrix) {
         int n = matrix.length;
-        if (n <= 1) return;
-        int i,j;
-        int left = 0, right = n - 1, top = 0, bottom = n - 1;
-        while (left < right && top < bottom) {
-            int[] prv = new int[n];
-            i = left;
-            j = bottom;
-            for (i = left; i <= right; i++) {
-                prv[i] = matrix[top][i];
-                matrix[j++][left] = matrix[left][i];
-            }
-            left++;
-            for (j = bottom; j >= top; j--) {
-               //matrix[top][]
-                matrix[j][left] = matrix[left][i++];
-            }
-            //for (i = top; i <= bottom; i++)
+        int start = 0, end = n - 1;
+        while (start < end) {
+            for (int i = start; i < end; i++) {
+//                int top = matrix[start][i];
+//                int right = matrix[i][end];
+//                int bottom = matrix[end][n - i];
+//                int left = matrix[n - i - 1][start];
 
+                int temp = matrix[start][i];
+                matrix[start][i] = matrix[n - i - 1][start];
+                matrix[n - i - 1][start] = matrix[end][n - i - 1];
+                matrix[end][n - i - 1] = matrix[i][end];
+                matrix[i][end] = temp;
+            }
+            start++;
+            end--;
         }
     }
 }
