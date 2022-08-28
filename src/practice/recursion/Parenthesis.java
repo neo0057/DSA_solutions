@@ -1,4 +1,4 @@
-package practice.string;
+package practice.recursion;
 
 public class Parenthesis {
     public void printBalanceParenthesis(int n) {
@@ -13,7 +13,7 @@ public class Parenthesis {
                 str[index] = '(';
                 generateBalanceParenthesisRec(str, index + 1, open + 1, close, n);
             }
-            if (close < n && close < open) {
+            if (close < open) {
                 str[index] = ')';
                 generateBalanceParenthesisRec(str, index + 1, open, close + 1, n);
             }
@@ -22,6 +22,6 @@ public class Parenthesis {
 
     public static void main(String[] args) {
         Parenthesis parenthesis = new Parenthesis();
-        parenthesis.printBalanceParenthesis(5);
+        parenthesis.printBalanceParenthesis(3);
     }
 }
