@@ -1,4 +1,4 @@
-package assignments.manfred.task3;
+package assignments.apr18.task3;
 
 import java.util.ArrayList;
 import java.util.Scanner;

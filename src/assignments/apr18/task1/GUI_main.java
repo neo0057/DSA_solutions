@@ -1,4 +1,4 @@
-package assignments.manfred.task1;
+package assignments.apr18.task1;
 
 import javax.swing.*;
 import java.awt.*;

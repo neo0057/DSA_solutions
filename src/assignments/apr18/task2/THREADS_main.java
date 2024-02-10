@@ -1,4 +1,4 @@
-package assignments.manfred.task2;
+package assignments.apr18.task2;
 
 public class THREADS_main {
     static class MyThread implements Runnable {
